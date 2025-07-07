@@ -1,32 +1,24 @@
-const readline = require('readline');
+// 1. Read a string from the user
+let input = prompt("Enter a string:");
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// 2. Find the length of the string
+console.log("Length of the string:", input.length);
 
+// 3. Extract the word “JavaScript” using substring() or slice()
+let extracted = input.substring(input.indexOf("JavaScript"), input.indexOf("JavaScript") + "JavaScript".length);
+console.log("Extracted word:", extracted);
+
+// 4. Replace one word with another word
+let replaced = input.replace("JavaScript", "TypeScript");
+console.log("After replacing:", replaced);
+
+// 5. Function to check if a string is a palindrome
 function isPalindrome(str) {
-  const reversedStr = str.split('').reverse().join('');
-  return str === reversedStr;
+  // Remove non-alphanumeric characters and convert to lowercase
+  let cleanStr = str.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
+  let reversed = cleanStr.split('').reverse().join('');
+  return cleanStr === reversed;
 }
 
-rl.question('Enter a string: ', (inputString) => {
-  const lengthOfString = inputString.length;
-  console.log(`Length of the string: ${lengthOfString}`);
-
-  const start = inputString.indexOf("JavaScript");
-  if (start !== -1) {
-    const extractedWord = inputString.slice(start, start + "JavaScript".length);
-    console.log(`Extracted word: ${extractedWord}`);
-  } else {
-    console.log("Word 'JavaScript' not found in the string.");
-  }
-
-  const replacedString = inputString.replace('JavaScript', 'JavaScript lab program');
-  console.log(`New string after replacement: ${replacedString}`);
-
-  const isStringPalindrome = isPalindrome(inputString);
-  console.log(`Is the string a palindrome? ${isStringPalindrome}`);
-
-  rl.close();
-});
+// 6. Check if the input is a palindrome
+console.log("Is the original input a palindrome?", isPalindrome(input));
