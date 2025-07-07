@@ -3,22 +3,20 @@ import React, { useState, useEffect } from 'react';
 const Counter = () => {
   const [count, setCount] = useState(0);
 
+  // Simulate fetching data when component loads
   useEffect(() => {
-    console.log('Fetching initial data...');
+    setTimeout(() => {
+      setCount(5); // set initial count to 5 after 1 second
+    }, 1000);
   }, []);
-
-  const increment = () => setCount(prevCount => prevCount + 1);
-  const decrement = () => setCount(prevCount => prevCount - 1);
-  const doubleCount = () => setCount(prevCount => prevCount * 2);
-  const resetCount = () => setCount(0);
 
   return (
     <div>
-      <h1>Count: {count}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-      <button onClick={doubleCount}>Double</button>
-      <button onClick={resetCount}>Reset</button>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount(count - 1)}>-</button>
+      <button onClick={() => setCount(count * 2)}>Double</button>
+      <button onClick={() => setCount(0)}>Reset</button>
     </div>
   );
 };
