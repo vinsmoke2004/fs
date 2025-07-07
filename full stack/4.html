@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            border:20px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <button onclick="console.log('clicked')">click me</button>
+
+    <img src="./images.jpeg" alt="" id="a" >
+    <script>
+        const image = document.getElementById("a")
+        image.addEventListener("mouseover",function(){
+            image.style.borderColor="red"
+        });
+        image.addEventListener("mouseout",function(){
+            image.style.borderColor="pink"
+        });
+
+        document.addEventListener("keydown",function(event){
+            console.log("key pressed"+ event.key)
+        });
+    </script>
+
+</body>
+</html>
